@@ -43,11 +43,13 @@
     a,
     a:visited {
         text-decoration: none;
+        color: inherit;
     }
     a:hover {
         text-decoration: none;
     }
     ul li {
+        margin: 0;
         list-style: none;
     }
     h1,
@@ -59,24 +61,31 @@
         font-weight: inherit;
         font-size: inherit;
     }
+
+
+
     .page-wrapper {
 
         .page-main {
-            .lib-vendor-prefix-display(flex);
-            .lib-vendor-prefix-flex-direction (column);
-            align-items: center;
-            max-width: 1350px;
+            max-width: 100%;
+            padding: 0;
         }
-    
+       
+        .page {
+            max-width: 1350px;
+            width: 100%;
+            padding: 0 15px;
+            margin: auto;
+        }
     }
 
     //Common classes==============================
 
 
     ._subtitle {
-        color: @color-drexler-gray;
+        color: @color-drexel-gray;
         font-size: @font-size_s;
-        letter-spacing: .75px;
+        letter-spacing: 1px;
     }
 
     ._view-link {
@@ -84,18 +93,22 @@
         cursor: pointer;
         text-decoration: none;
         font-size: @font-size_s;
-        color: @color-drexler-black;
+        color: @color-drexel-black;
         letter-spacing: 1px;
         
         &:hover {
-            color: rgb(58, 58, 58);
+            color: @color-drexel-hover;
+            
+            &::after {
+                background-color: @color-drexel-hover;
+            }
         }
         &::after {
             display: block;
             position: absolute;
             content:'';
             height: 1px;
-            background-color: @color-drexler-black;
+            background-color: @color-drexel-black;
             width: 100%;
             bottom: -5px;
             left: 0px;
@@ -108,7 +121,7 @@
 
     .baner {
         &__container {
-            background-color: @color-drexler-lightGray;
+            background-color: @color-drexel-lightGray;
             min-width: 100vw;
             max-height: 887px;
             height: 100vw;
@@ -128,7 +141,7 @@
         padding-top: 130px;
         .lib-vendor-prefix-flex-basis(550px); 
         &__title {
-            color: @color-drexler-black;
+            color: @color-drexel-black;
             font-size: @font-size_xxl;
             font-weight: 400;
             letter-spacing: 5px;
@@ -144,24 +157,31 @@
             
         }
     }
+
      //Categories============================================================
 
      .categories{
 
          &__container {
+            width: 100%;
         }
         &__body {
             .lib-vendor-prefix-display(flex);
+            justify-content: space-between;
+            :not(:last-child) {
+                margin-right: 20px;   
+               }
         }
     
     }
 
     .item-category {
-        background-color: @color-drexler-lightGray;
-        height: 312px;
-        margin: 15px;
+        background-color: @color-drexel-lightGray;
+        min-height: 312px;
+        max-width: 645px;
+        width: 100%;
+
         .lib-vendor-prefix-display(flex);
-        justify-content: space-around;
 
         &__content {
             .lib-vendor-prefix-display(flex);
@@ -189,15 +209,48 @@
         }
         &__text {
             margin-bottom: 20px;
+            font-style: italic;
         }
         &__link {
             font-size: 14px;
             text-decoration: none;
-            color: @color-drexler-black;
+            color: @color-drexel-black;
         }
     }
    
+//Our Products =====================================================
+
+    .products {
+        &__container {
+           width: 100%;
+        }
+        &__header {
+            margin: 30px 0px;
+            padding-bottom: 20px;
+        }
+        &__title {
+            font-size: @font-size_xl;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        &__subtitle {
+            position: relative;
+            &::after {
+                position: absolute;
+                content: '';
+                width: 30px;
+                height: 3px;
+                left: 0;
+                bottom: -25px;
+                background-color: @color-drexel-black;
+            }
+        }
+    }
 }
+
+
+// Desktop max 1200px==================================
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
 
@@ -209,14 +262,12 @@
             .lib-vendor-prefix-flex-direction (column);
             transform: none;
             justify-content: flex-start;
-            .lib-vendor-prefix-flex-wrap (wrap);
         }
         &__image {
             .lib-vendor-prefix-flex-basis(auto); 
             text-align: center;
             padding-top: 30px;;
             img{
-                max-width: 60%;
                 transform: translateX(-5%);
             }
         }
@@ -238,21 +289,22 @@
        &__body {
         .lib-vendor-prefix-flex-wrap (wrap);
        justify-content: center;
+       :not(:last-child) {
+        margin: 0 0 20px 0;   
+       }
        }
    }
-   .item-category {
-    width: 700px;
-    }
 
 }
 
+// Mobile max 769px========================
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
 
     //Main baner
 
     .content {
-       padding-top: 50px;
+       padding-top: 30px;
         &__text {
             padding-bottom: 30px;
         }
@@ -260,28 +312,31 @@
 
     .baner__image {
         padding-top: 40px;
-        img {
-            max-width: 60%;
-        }
     }
-    .item-category {
-        width: 600px;
-        }
+
+    //Categories
+
+    .categories__body {
+        flex-direction: column;
+        align-items: center;
+    }
 
 }
 
+
+// Mobile max 650px========================
+
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
 
+    //Main baner
     .baner {
         &__container {
-            height: 450px;
+            min-height: 450px;
+        }
+        &__image img {
+            max-width: 60%;
         }
 
-        &__image {
-            img {
-            max-width: 40%;
-            }
-        }
     }
 
     .content {
@@ -293,19 +348,29 @@
         }
     }
 
-    .item-category {
-        height: 500px;
-        width: 100%;
-        .lib-vendor-prefix-flex-wrap (wrap);
+    //Categories
 
+    .item-category {
+        .lib-vendor-prefix-flex-wrap (wrap);
+        justify-content: center;
+        &__img {
+            padding: 0;
+            margin: 0;
+
+        }
         &__content {
             padding: 20px 20px;
             align-items: center;
+            margin-bottom: 20px;
         }
         &__text {
             text-align: center;
             margin-bottom: 30px;
         }
     }
+    //Our products
 
+    .products__header {
+        text-align: left;
+    }
 }
