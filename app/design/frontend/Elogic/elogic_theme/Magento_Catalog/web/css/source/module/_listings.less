@@ -46,7 +46,6 @@
 
         &-item{
             position: relative;
-            flex: 0 0 auto; 
             &-info {
                 position: relative;
             }
@@ -98,7 +97,7 @@
             }
 
             &-name {
-                margin: 30px 0px 10px 0px;
+                margin: @indent__l 0px 10px 0px;
                 .lib-font-size(@font-size_s);
                 font-weight: @font-weight-regular;
                 text-transform: uppercase;
@@ -126,7 +125,7 @@
                         letter-spacing: 1px;
                         border: none;
                         border-bottom: 1px solid @color-drexel-black;
-                        padding: 0px 0px 10px 0px;
+                        padding: 0px 0px @indent__s 0px;
                         border-radius: 0%;
 
                         &:hover {
@@ -151,9 +150,9 @@
                     &-list {
                         .lib-vendor-prefix-display(flex);
                         .lib-vendor-prefix-flex-direction (column);
-                        align-items: center;
+                        .lib-vendor-box-align(center);
                         justify-content: space-between;
-                        padding: 15px 0;
+                        padding: (@indent__s + @indent__xs) 0;
 
                         &-item {
                             width: 100%;
@@ -214,7 +213,7 @@
         }
 
         &-item {
-            margin-bottom: 20px;
+            margin-bottom: @indent__base;
         }
     }
 }
