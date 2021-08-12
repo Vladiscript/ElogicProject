@@ -250,7 +250,7 @@
             }
         }
     }
-}
+
 
 // November Sale ===================================================
 
@@ -391,6 +391,60 @@
     }
 }
 
+// Brands ==================================================
+
+.brands {
+    
+    &__title {
+        text-align: center;
+        .lib-font-size(@font-size_exl);
+            span {
+                position: relative;
+            &::after{
+                display: block;
+                position: absolute;
+                content: '';
+                height: 1px;
+                width: 200%;
+                top: 50%;
+                left: 105%;
+                max-width: 500px;
+                background-color: @color-drexel-lightGray;
+            }
+            &::before {
+                display: block;
+                position: absolute;
+                content: '';
+                height: 1px;
+                top: 50%;
+                right: 105%;
+                width: 200%;
+                max-width: 500px;
+                background-color: @color-drexel-lightGray;
+            }
+        }
+    }
+
+    &__body {
+        .lib-vendor-prefix-display(flex);
+        .lib-vendor-prefix-flex-wrap (wrap);
+        justify-content: space-between;
+    }
+    }
+    .brand {
+        &__item {
+            .lib-vendor-prefix-display(flex);
+            .lib-vendor-prefix-flex-direction(column);
+            .lib-vendor-box-align(center);
+            width: 20%;
+            min-width: 130px;
+            margin-bottom: @indent__base;
+        }
+        &__name {
+            margin-top: @indent__base;
+        }
+    }
+}
 
 // Desktop max 1200px==================================
 
