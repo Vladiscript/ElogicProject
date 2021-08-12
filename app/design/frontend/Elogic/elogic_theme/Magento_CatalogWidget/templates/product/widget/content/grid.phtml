@@ -37,12 +37,14 @@ use Magento\Framework\App\Action\Action;
                     <?php foreach ($items as $_item) : ?>
                         <?= /* @noEscape */ ($iterator++ == 1) ? '<li class="product-item">' : '</li><li class="product-item">' ?>
                         <div class="product-item-info">
+                            <div class="product-item-photos">
                             <a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product-item-photo">
                                 <?= $block->getImage($_item, $image)->toHtml() ?>
                             </a>
-                            <a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product-item-photo-hovered">
+                            <a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product-item-photo product-item-photo-hovered">
                                 <?= $block->getImage($_item, $_imageHover)->toHtml() ?>
                             </a>
+                            </div>
                             <div class="product-item-details">
                                 <strong class="product-item-name">
                                     <a title="<?= $block->escapeHtml($_item->getName()) ?>"
