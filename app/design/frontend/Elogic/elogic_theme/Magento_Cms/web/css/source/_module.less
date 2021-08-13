@@ -92,6 +92,7 @@
         position: relative;
         cursor: pointer;
         text-decoration: none;
+        line-height: 20px;
         .lib-font-size(@font-size_s);
         color: @color-drexel-black;
         letter-spacing: 1px;
@@ -115,6 +116,11 @@
             }
         } 
     
+    ._title {
+            .lib-font-size(@font-size_xl);
+            font-weight: @font-weight-semiBold;
+            letter-spacing: 1px;
+        }
 
     //Main baner============================================================
 
@@ -223,17 +229,17 @@
     .products {
         &__container {
            width: 100%;
+           margin-bottom: (@indent__xl*2 + @indent__base);
         }
         &__header {
             margin: @indent__l 0px;
             padding-bottom: @indent__base;
         }
+
         &__title {
-            .lib-font-size(@font-size_xl);
-            font-weight: @font-weight-semiBold;
             margin-bottom: @indent__s;
-            letter-spacing: 1px;
         }
+
         &__subtitle {
             position: relative;
             &::after {
@@ -249,6 +255,64 @@
     }
 }
 
+// November Sale ===================================================
+
+.sale {
+
+     &__title {
+         margin-bottom: @indent__xs;
+     }
+
+    &__subtitle {
+        text-transform: uppercase;
+        color: @color-drexel-black;
+    }
+
+    &__body {
+        position: relative;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        .lib-vendor-prefix-display(flex);
+        .lib-vendor-prefix-flex-direction(column);
+        justify-content: center;
+        width: 100%;
+        height: 150px;
+        background-image: url('https://i.ibb.co/Qms181R/Screenshot-2021-07-30-at-12-16-18-kare-k83990-624068820-800x800w-jpg-JPEG-Image-699-800-pixels.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-y: -250px;
+
+        &::before {
+            content:'';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: @color-drexel-black;
+            opacity:0;
+            transition: all .3s ease 0s; 
+        }
+        &:hover {
+            &::before {
+                opacity: .3;
+            }
+        }
+    }
+
+    &__baner {
+        cursor: pointer;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+    }
+
+    &__content {
+        .lib-vendor-prefix-display(flex);
+        .lib-vendor-box-align(center);
+        justify-content: space-between;
+        padding: 0 @indent__l*3;
+    }
+}
 
 // Desktop max 1200px==================================
 
@@ -317,10 +381,14 @@
     //Categories
 
     .categories__body {
-        .lib-vendor-prefix-flex-direction (column);
+        .lib-vendor-prefix-flex-direction(column);
         .lib-vendor-box-align(center);
     }
+    // Sale baner 
 
+    .sale__content {
+        padding: 0 @indent__xl;
+    }
 }
 
 
@@ -373,4 +441,23 @@
     .products__header {
         text-align: left;
     }
+
+    // Sale baner 
+
+        .sale{
+
+            &__body{
+                background-position-y: -50px;
+            }
+
+            &__content {
+            .lib-vendor-prefix-flex-direction(column);
+            text-align: center;
+            }
+
+            &__description {
+                margin-bottom: @indent__base;
+            }
+        }
+
 }
