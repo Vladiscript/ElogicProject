@@ -81,6 +81,9 @@
 
     //Common classes==============================
 
+    ._container {
+        margin-bottom: @indent__xl*3;
+    }
 
     ._subtitle {
         color: @color-drexel-gray;
@@ -168,8 +171,6 @@
      .categories{
 
          &__container {
-            width: 100%;
-            margin-bottom: (@indent__xl*3)
         }
         &__body {
             .lib-vendor-prefix-display(flex);
@@ -228,8 +229,6 @@
 
     .products {
         &__container {
-           width: 100%;
-           margin-bottom: (@indent__xl*2 + @indent__base);
         }
         &__header {
             margin: @indent__l 0px;
@@ -314,6 +313,26 @@
     }
 }
 
+// Bestsellers 
+
+.bestsellers {
+    &__items {
+        .lib-vendor-prefix-display(flex);
+    }
+    &__item {
+        width: 100%;
+        max-width: 450px;
+        padding: 0 (@indent__s + @indent__xs);
+    }
+}
+
+.item {
+    &__title {
+        .lib-font-size(@font-size_l);
+        text-transform: uppercase
+    }
+}
+
 // Desktop max 1200px==================================
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
@@ -359,6 +378,16 @@
        }
    }
 
+   //Bestsellers 
+
+   .bestsellers {
+       &__items {
+        .lib-vendor-prefix-flex-wrap(wrap);
+       }
+       &__item {
+           width: 50%;
+       }
+   }
 }
 
 // Mobile max 769px========================
@@ -389,6 +418,17 @@
     .sale__content {
         padding: 0 @indent__xl;
     }
+
+    //Bestsellers 
+
+   .bestsellers {
+    &__items {
+        justify-content: center;
+    }
+    &__item {
+        width: 100%;
+    }
+}
 }
 
 
