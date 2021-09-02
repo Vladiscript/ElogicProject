@@ -123,6 +123,7 @@
             .lib-font-size(@font-size_xl);
             font-weight: @font-weight-semiBold;
             letter-spacing: 1px;
+            margin-bottom: @indent__s;
         }
 
     //Main baner============================================================
@@ -235,9 +236,6 @@
             padding-bottom: @indent__base;
         }
 
-        &__title {
-            margin-bottom: @indent__s;
-        }
 
         &__subtitle {
             position: relative;
@@ -252,7 +250,7 @@
             }
         }
     }
-}
+
 
 // November Sale ===================================================
 
@@ -313,16 +311,16 @@
     }
 }
 
-// Bestsellers 
+// Bestsellers =====================================================
 
 .bestsellers {
     &__items {
         .lib-vendor-prefix-display(flex);
+        justify-content: space-between;
     }
     &__item {
         width: 100%;
-        max-width: 450px;
-        padding: 0 (@indent__s + @indent__xs);
+        max-width: 420px;
     }
 }
 
@@ -330,6 +328,121 @@
     &__title {
         .lib-font-size(@font-size_l);
         text-transform: uppercase
+    }
+}
+
+// NEWS ===========================================================
+
+.news {
+
+    &__header {
+        margin: @indent__l 0px;
+        padding-bottom: @indent__base;
+    }
+
+    &__subtitle {
+        position: relative;
+        &::after {
+            position: absolute;
+            content: '';
+            width: 30px;
+            height: 3px;
+            left: 0;
+            bottom: -25px;
+            background-color: @color-drexel-black;
+        }
+    }
+
+    &__items {
+        .lib-vendor-prefix-display(flex);
+        justify-content: space-between;
+    }
+
+    &__item {
+     max-width: 420px;
+     width: 100%;
+     padding: 0 @indent__s;
+    }
+}
+
+.item {
+
+    &__title {
+        .lib-font-size(@font-size_s);
+        font-weight: @font-weight-semiBold;
+    }
+
+    &__date {
+        color: @color-drexel-gray;
+        margin: @indent__base 0;
+        .lib-font-size(@font-size_xs);
+        font-weight: @font-weight-light;
+        font-style: @font-style-italic;
+        i {
+            padding-right: @indent__xs;
+        }
+    }
+
+    &__text {
+        color: @color-drexel-gray;
+        .lib-font-size(@font-size_s);
+        font-weight: @font-weight-light;
+        line-height: 22px;
+    }
+}
+
+// Brands ==================================================
+
+.brands {
+    
+    &__title {
+        text-align: center;
+        .lib-font-size(@font-size_exl);
+            span {
+                position: relative;
+            &::after{
+                display: block;
+                position: absolute;
+                content: '';
+                height: 1px;
+                width: 200%;
+                top: 50%;
+                left: 105%;
+                max-width: 500px;
+                background-color: @color-drexel-lightGray;
+            }
+            &::before {
+                display: block;
+                position: absolute;
+                content: '';
+                height: 1px;
+                top: 50%;
+                right: 105%;
+                width: 200%;
+                max-width: 500px;
+                background-color: @color-drexel-lightGray;
+            }
+        }
+    }
+
+    &__body {
+        .lib-vendor-prefix-display(flex);
+        .lib-vendor-prefix-flex-wrap (wrap);
+        justify-content: space-between;
+    }
+    }
+    .brand {
+        &__item {
+            .lib-vendor-prefix-display(flex);
+            .lib-vendor-prefix-flex-direction(column);
+            .lib-vendor-box-align(center);
+            width: 20%;
+            min-width: 130px;
+            margin-bottom: @indent__base;
+        }
+        &__name {
+            margin-top: @indent__base;
+        }
     }
 }
 
@@ -422,13 +535,15 @@
     //Bestsellers 
 
    .bestsellers {
-    &__items {
-        justify-content: center;
+        &__items {
+            .lib-vendor-prefix-flex-direction(column);
+            .lib-vendor-box-align(center);
+        }
+        &__item {
+            width: 100%;
+        }
     }
-    &__item {
-        width: 100%;
-    }
-}
+
 }
 
 
@@ -500,4 +615,16 @@
             }
         }
 
+
+    // NEWS
+
+        .news{
+            &__items {
+                .lib-vendor-prefix-flex-wrap(wrap);
+                justify-content: center;
+            }
+            &__item {
+                padding: 0 0 @indent__xl 0;
+            }
+        }
 }
