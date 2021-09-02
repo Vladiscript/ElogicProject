@@ -474,14 +474,10 @@
         text-transform: uppercase;
         margin-bottom: @indent__xl;
         transition: color .3s;
+        pointer-events: visible;
 
         &:hover {
             color: @color-drexel-gray;
-
-            .footer__accordion {
-                background: @color-drexel-black;
-                color: @color-drexel-white;
-            }
         }
     }
 
@@ -566,9 +562,9 @@
 
 }
 
-// Desktop max 1200px==================================
+// Desktop max 1200px======================
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__l) {
 
     //Main baner
 
@@ -626,9 +622,9 @@
    }
 }
 
-// Mobile max 769px========================
+// Mobile max 768px========================
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
 
     //Main baner
 
@@ -680,16 +676,33 @@
             margin-bottom: @indent__xs*3;
         }
         &__accordion {
-            display: flex;
+            position: relative;
+            display: block;
             cursor: pointer;
             float: right;
             width: 30px;
             height: 30px;
-            justify-content: center;
-            align-items: center;
             .lib-font-size(@font-size_xs);
             background: @color-drexel-lightGray;
             color: @color-drexel-black;
+
+            &::after {
+                position: absolute;
+                content: @icon-plus;
+                font-family: @font-family-fontAwesome;
+                top: 30%;
+                left: 35%;
+            }
+        }
+
+        &__links.opened {
+            .footer__title {
+                >.footer__accordion {
+                    &::after {
+                        content: @icon-minus;
+                    }
+                }
+            }  
         }
     }
 
@@ -716,7 +729,7 @@
 
 // Mobile max 650px========================
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
 
     //Main baner
     .baner {

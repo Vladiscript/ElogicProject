@@ -1,0 +1,27 @@
+& when (@media-common = true) {
+    .minicart-wrapper {
+        margin: 0;
+        .action {
+            &.showcart {
+                &::before {
+                    display: none;
+                }
+                &.active {
+                    &::before{
+                        display: none;
+                    }
+                }
+                .text {
+                    .lib-font-size(@font-size_xs);
+                    position:static ;
+                    visibility: visible;
+                    transition: color .3s;
+                    &:hover {
+                        color: @color-drexel-hover;
+                    }
+                }
+            }
+
+        }
+    }
+}

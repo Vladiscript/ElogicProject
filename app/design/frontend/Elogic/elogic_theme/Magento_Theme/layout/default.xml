@@ -2,13 +2,14 @@
 
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="header.panel">
-            <block class="Magento\Framework\View\Element\Html\Links" name="header.links">
-                <arguments>
-                    <argument name="css_class" xsi:type="string">header links</argument>
-                </arguments>
-            </block>
+       
+        <referenceContainer name="header-wrapper">
+            <container name="header.controls" htmlClass="header-controls" htmlTag="div">
+                <block class="Magento\Framework\View\Element\Template" name="wish.list" template="Magento_Wishlist::link.phtml"/>
+            </container>
         </referenceContainer>
+
+
         <referenceContainer name="footer">
             <block class="Magento\Cms\Block\Block" name="footer-menu">
                 <arguments>
@@ -16,9 +17,15 @@
                 </arguments>
             </block>
         </referenceContainer>
-
         <referenceBlock name="footer_links" remove="true"/>
         <referenceBlock name="report.bugs" remove="true"/>
         <referenceBlock name="copyright" remove="true"/>
+        <referenceBlock name="store.links" remove="true"/>
+
+        <move element="navigation.sections" destination="header-wrapper" after="logo"/>
+        <move element="form.subscribe" destination="footer-container" before="-"/>
+        <move element="authorization-link" destination="header.controls" before="-"/>
+        <move element="minicart" destination="header.controls" before="top.search"/>
+        <move element="top.search" destination="header.controls" after="-"/>
     </body>
 </page>

@@ -110,7 +110,7 @@
 //  Mobile
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
    .subscribe {
        &__container {
         .lib-vendor-prefix-flex-direction(column);
@@ -132,7 +132,7 @@
     }
 }
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xxs){
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs){
     .block.newsletter {
         .form.subscribe {
             display: block;
