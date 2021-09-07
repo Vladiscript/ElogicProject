@@ -346,6 +346,19 @@
             .lib-vendor-prefix-flex-direction(column);
             max-height: 500px;
         }
+
+        .bestsellers__item {
+            .slick-arrow {
+                opacity: 0;
+                visibility: hidden;
+            }
+            &:hover {
+                 .slick-arrow{
+                    opacity: 1;
+                    visibility: visible;
+            }
+        }
+        }
     }
 
 
