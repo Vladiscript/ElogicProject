@@ -1,0 +1,145 @@
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    //  Newsletter subscription
+    .block.newsletter {
+            background: @color-drexel-lightGray;
+            margin-bottom: 0;
+        & .content {
+            padding-top: 0;
+        }
+        .form.subscribe {
+            justify-content: center;
+            width: 50%;
+            .lib-vendor-prefix-display(flex);
+        }
+
+        .fieldset {
+            display: table-cell;
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+        }
+
+        .field {
+            margin: 0;
+            width: 46%;
+            .control {
+                .lib-icon-font(
+                @icon-envelope,
+                @_icon-font-size: 16px,
+                @_icon-font-line-height: 32px,
+                @_icon-font-color: @form-element-input-placeholder__color,
+                @_icon-font-margin: 0 0 0 8px
+                );
+
+                &:before {
+                    display: none;
+                }
+
+                display: block;
+            }
+        }
+
+        input {
+            background-color: @color-drexel-lightGray;
+            color: @color-drexel-gray;
+            height: 50px;
+            min-width: 152px;
+            padding: 0 0 0 20px; // Reset some default Safari padding values.
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        .title {
+            display: none;
+        }
+
+        .label {
+            &:extend(.abs-visually-hidden all);
+        }
+
+        .actions {
+            width: auto;
+            padding-left: @indent__xs;
+        }
+
+        .action.subscribe {
+            padding: @indent__s + @indent__xs  @indent__l + @indent__xs;
+            height: 50px;
+            background-color: @color-drexel-black;
+            color: @color-drexel-white;
+            .lib-font-size(@font-size_s);
+            font-weight: @font-weight-regular;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 0%;
+        }
+    }
+    .subscribe {
+        &__container {
+        .lib-vendor-prefix-display(flex);
+        .lib-vendor-box-align(center);
+        justify-content: space-between;
+        max-width: 1350px;
+        margin: auto;
+        padding: @indent__l @indent__s + @indent__xs;
+        }
+        &__title {
+            font-size: @font-size_xxl;
+            font-weight: @font-weight-bold;
+            letter-spacing: 2px;
+            margin: 0;
+            line-height: normal;
+        }
+        &__subtitle {
+            .lib-font-size(@font-size_s);
+            font-weight: @font-weight-light;
+            color: @color-drexel-gray;
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+   .subscribe {
+       &__container {
+        .lib-vendor-prefix-flex-direction(column);
+       }
+       &__info {
+           text-align: center;
+           margin-bottom: @indent__base;
+       }
+   }
+   .block.newsletter {
+       .field {
+            width: 100%;
+            max-width: 330px;
+        }
+        .form.subscribe {
+            width: 100%;
+        }
+      
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs){
+    .block.newsletter {
+        .form.subscribe {
+            display: block;
+        }
+        .actions {
+            text-align: center;
+            padding: @indent__xs 0;
+        }
+    }
+}
