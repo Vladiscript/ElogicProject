@@ -3,20 +3,29 @@
 	display: inline-block;
 	position: relative;
 	vertical-align: middle;
-	.select2-selection--single {
+	width: 140px;
+		.select2-selection--single {
 		box-sizing: border-box;
 		cursor: pointer;
 		display: block;
-		height: 28px;
+		height: 32px;
 		user-select: none;
 		-webkit-user-select: none;
 		.select2-selection__rendered {
 			display: block;
-			padding-left: 8px;
+			padding-left: 10px;
 			padding-right: 20px;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
+
+			&::after {
+				content:@icon-arrow;
+				position: absolute;
+				font-family: @font-family-fontAwesome;
+				right: 10px;
+				transform: rotate(90deg);
+			}
 		}
 		.select2-selection__clear {
 			background-color: transparent;
@@ -44,6 +53,7 @@
 	}
 	.select2-search--inline {
 		.select2-search__field {
+			display: none;
 			box-sizing: border-box;
 			border: none;
 			font-size: 100%;
@@ -72,9 +82,11 @@
 	}
 }
 .select2-dropdown {
-	background-color: white;
+	font-weight: @font-weight__light;
+	.lib-font-size(@font-size_xs);
+	color: @color-drexel-black;
+	background: @color-drexel-white;
 	border: 1px solid #aaa;
-	border-radius: 4px;
 	box-sizing: border-box;
 	display: block;
 	position: absolute;
@@ -114,7 +126,7 @@
 	}
 }
 .select2-search--dropdown {
-	display: block;
+	display: none;
 	padding: 4px;
 	.select2-search__field {
 		padding: 4px;
@@ -159,9 +171,14 @@
 }
 .select2-container--default {
 	.select2-selection--single {
+		font-weight: @font-weight__light;
+		.lib-font-size(@font-size_xs);
+		color: @color-drexel-border;
 		background-color: #fff;
-		border: 1px solid #aaa;
-		border-radius: 4px;
+		border: 1px solid @color-drexel-border;
+		border-radius: 0;
+		text-align: left;
+
 		.select2-selection__rendered {
 			color: #444;
 			line-height: 28px;
@@ -176,25 +193,6 @@
 		}
 		.select2-selection__placeholder {
 			color: #999;
-		}
-		.select2-selection__arrow {
-			height: 26px;
-			position: absolute;
-			top: 1px;
-			right: 1px;
-			width: 20px;
-			b {
-				border-color: #888 transparent transparent transparent;
-				border-style: solid;
-				border-width: 5px 4px 0 4px;
-				height: 0;
-				left: 50%;
-				margin-left: -4px;
-				margin-top: -2px;
-				position: absolute;
-				top: 50%;
-				width: 0;
-			}
 		}
 	}
 	.select2-selection--multiple {
@@ -321,11 +319,9 @@
 		color: #999;
 	}
 	.select2-results__option--selected {
-		background-color: #ddd;
 	}
 	.select2-results__option--highlighted.select2-results__option--selectable {
-		background-color: #5897fb;
-		color: white;
+		background-color: #ccc;
 	}
 	.select2-results__group {
 		cursor: default;
