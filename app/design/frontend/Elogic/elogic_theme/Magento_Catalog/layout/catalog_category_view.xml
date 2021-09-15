@@ -3,7 +3,24 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
+            <block class="Magento\Cms\Block\Block" name="category-baner" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">category-baner</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="category-slider" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">category-page-slider</argument>
+                </arguments>
+            </block>
             <block class="Magento\Framework\View\Element\Template" name="scripts.cms" template="Magento_Catalog::js.phtml" after="-"/>
         </referenceContainer>
+
+
+        <referenceBlock name="form.subscribe" remove="true"/>
+
+        <move element="category-baner" destination="main.content" before="-"/>
+        <move element="breadcrumbs" destination="main.content"  before="-"/>
+        <move element="category-slider" destination="sidebar.main"  after="-"/>
     </body>
 </page>
