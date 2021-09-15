@@ -16,7 +16,7 @@
         <referenceContainer name="footer">
             <block class="Magento\Cms\Block\Block" name="footer-menu">
                 <arguments>
-                    <argument name="block_id" xsi:type="string">8</argument>
+                    <argument name="block_id" xsi:type="string">footer-menu</argument>
                 </arguments>
             </block>
         </referenceContainer>
