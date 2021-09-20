@@ -18,11 +18,13 @@ define([
             mediaCheck({
                 media: '(min-width: 768px)',
                 entry: function () {
-                    el.collapsible('activate')
-                    el.collapsible('destroy');
+                    if (el.collapsible()) {
+                        el.collapsible('activate')
+                        el.collapsible('destroy');
+                    }
                 },
                 exit: function () {
-                    el.collapsible()
+                    el.collapsible({ openedState: "opened" })
                 }
             });
 

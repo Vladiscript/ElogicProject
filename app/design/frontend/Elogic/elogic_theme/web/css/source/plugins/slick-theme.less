@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+// Default Variables
+
+@slick-font-path: "./fonts/";
+@slick-font-family: "slick";
+@slick-loader-path: "./";
+@slick-arrow-color: white;
+@slick-dot-color: black;
+@slick-dot-color-active: @slick-dot-color;
+@slick-prev-character: "←";
+@slick-next-character: "→";
+@slick-dot-character: "•";
+@slick-dot-size: 6px;
+@slick-opacity-default: 0.75;
+@slick-opacity-on-hover: 1;
+@slick-opacity-not-active: 0.25;
+
+/* Slider */
+.slick-loading .slick-list{
+    background: #fff url('@{slick-loader-path}ajax-loader.gif') center center no-repeat;
+}
+
+/* Arrows */
+.slick-prev,
+.slick-next {
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    top: -50px;
+    line-height: 20px;
+    text-align: center;
+    width: 60px;
+    .lib-font-size(@font-size_xs);
+    font-weight: @font-weight-light;
+    letter-spacing: 1px;
+    transition: color .3s;
+
+    &:hover {
+        color: @color-drexel-hover;
+    }
+}
+
+.slick-prev:before, .slick-next:before {
+    font-family: @slick-font-family;
+    font-size: 20px;
+    line-height: 1;
+    color: @slick-arrow-color;
+    opacity: @slick-opacity-default;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    & when ( @slick-font-family = 'slick' ) {
+        /* Icons */
+        @font-face {
+            font-family: 'slick';
+            font-weight: normal;
+            font-style: normal;
+            src: url('@{slick-font-path}slick.eot');
+            src: url('@{slick-font-path}slick.eot?#iefix') format('embedded-opentype'), url('@{slick-font-path}slick.woff') format('woff'), url('@{slick-font-path}slick.ttf') format('truetype'), url('@{slick-font-path}slick.svg#slick') format('svg');
+        }
+    }
+}
+
+.slick-prev {
+    right: 80px;
+    border-right: 1px solid @color-drexel-black;
+    [dir="rtl"] & {
+        left: auto;
+        right: -25px;
+    }
+}
+
+.slick-next {
+    right: 20px;
+    [dir="rtl"] & {
+        left: -25px;
+        right: auto;
+    }
+}
+
+/* Dots */
+
+.slick-dotted .slick-slider {
+    margin-bottom: 30px;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: 30px;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    li {
+        position: relative;
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        padding: 0 @indent__xs;
+        cursor: pointer;
+        button {
+            border: 2px solid @color-drexel-black;
+            border-radius: 0;
+            background: transparent;
+            display: block;
+            height: 10px;
+            width: 10px;
+            outline: none;
+            line-height: 0px;
+            font-size: 0px;
+            color: transparent;
+            padding: 0;
+            cursor: pointer;
+            &:hover, &:focus {
+                background: @color-drexel-black;
+            }
+        }
+    }
+    .slick-active button{
+        background: @color-drexel-black;
+    }
+}

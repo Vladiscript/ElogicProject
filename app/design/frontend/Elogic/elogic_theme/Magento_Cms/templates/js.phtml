@@ -1,0 +1,118 @@
+
+                                    <!-- Sliders -->
+        <script type="text/x-magento-init">
+            {
+            "*": {
+                "slider": {
+                    "selector": ".baner__slider",
+                    "dots": true,
+                    "slidesToScroll": 1,
+                    "infinite": true
+                }
+            },
+            ".products__container": {
+                "slider": {
+                    "selector":".products__body .product-items",
+                    "slidesToShow": 4,
+                    "slidesToScroll": 4,
+                    "infinite": true,
+                    "arrows": true,
+                    "responsive": [
+                        {
+                            "breakpoint": 1200,
+                            "settings": {
+                                "slidesToShow": 3,
+                                "slidesToScroll": 3
+                            }
+                        },
+                        {
+                            "breakpoint": 900,
+                            "settings": {
+                                "slidesToShow": 2,
+                                "slidesToScroll": 2
+                            }
+                        },
+                        {
+                            "breakpoint": 650,
+                            "settings": {
+                                "slidesToShow": 1,
+                                "slidesToScroll": 1
+                            }
+                        }
+                    ]
+                }
+            },
+            ".bestsellers__container": {
+                "slider": {
+                    "selector":".bestsellers__body .product-items",
+                    "slidesToShow": 3,
+                    "slidesToScroll": 3,
+                    "infinite": true,
+                    "arrows": true
+                }
+            },
+            ".news__container": {
+                "slider": {
+                    "selector":".news__items",
+                    "slidesToShow": 3,
+                    "slidesToScroll": 3,
+                    "infinite": false,
+                    "arrows": true,
+                    "responsive": [
+                        {
+                            "breakpoint": 768,
+                            "settings": {
+                                "slidesToShow": 2,
+                                "slidesToScroll": 2
+                            }
+                        },
+                        {
+                            "breakpoint": 500,
+                            "settings": {
+                                "slidesToShow": 1,
+                                "slidesToScroll": 1
+                            }
+                        }
+                    ]
+                }
+            },
+            ".brands__container": {
+                "slider": {
+                    "selector":".brands__body",
+                    "dots": true,
+                    "slidesToShow": 5,
+                    "slidesToScroll": 3,
+                    "infinite": true,
+                    "arrows": true,
+                    "autoplay": true,
+                    "responsive": [
+                        {
+                            "breakpoint": 650,
+                            "settings": {
+                                "slidesToShow": 4,
+                                "slidesToScroll": 2,
+                                "arrows": false
+                            }
+                        },
+                        {
+                            "breakpoint": 500,
+                            "settings": {
+                                "slidesToShow": 3,
+                                "slidesToScroll": 1,
+                                "arrows": false
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+        </script>
+                        <!-- Footer collapse -->
+
+        <script type="text/x-magento-init">
+        {
+            ".footer__links": {
+                "footerCollapse": {}
+            }
+        }
+        </script>
