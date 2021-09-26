@@ -23,9 +23,6 @@ define([
         _create: function () {
             const slider = $(this.options.selector)
 
-            console.log(slider);
-            console.log('slider init');
-
             slider.slick({
                 dots: this.options.dots,
                 infinite: this.options.infinite,

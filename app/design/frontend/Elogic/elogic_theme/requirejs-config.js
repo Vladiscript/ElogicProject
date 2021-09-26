@@ -13,7 +13,7 @@ let config = {
         slick: {
             deps: ['jquery']
         },
-        selectize: {
+        select2: {
             deps: ['jquery']
         }
     }
