@@ -1,0 +1,48 @@
+<?php
+/**
+ * @var $block \Mirasvit\Giftr\Block\Item\Add
+ */
+?>
+
+<div class="giftr-list" style="display: none"
+     data-bind="scope: 'giftr-addto__form'"
+     data-mage-init='{"modalGifts":{}}'>
+
+    <div class="registry-list" data-bind="visible: hasRegistries">
+
+        <div class="registry-title">
+            <h2>Select Gift Registry</h2>
+        </div>
+
+        <div  class="registry-select">
+                Select Category
+        </div>
+
+        <div class="registries" data-bind="foreach: registries">
+            <div class="registry-option">
+            <label for="registry_>" class="label reg-label" data-bind="attr: { for: 'registry_' + value }">
+                <input class="reg-input" type='radio' id="registry_" name="registries[]" value=""
+                    data-bind="checked: $parent.selected, value: value, attr: { id: 'registry_' + value }" />
+                <span data-bind="text: label"></span>  
+            </label> 
+            </div>
+        </div>
+         <button class="registry-button"><a id="confirm-add-to-registry" href="#" data-bind="click: addProduct"><?= __('Add to gift registry') ?></a></button>
+    </div>
+        
+    <div class="giftr-message" data-bind="visible: isMessageVisible()">
+        <span data-bind="html: getMessage()"></span>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+            {
+            ".giftr-list": {
+                "selectGifts": {
+                    "giftList": ".registries",
+                    "giftOption": ".reg-label",
+                    "select": ".registry-select"
+                }
+            }
+        }
+</script>
